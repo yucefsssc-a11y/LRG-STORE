@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRG Matraques | المتجر الرسمي - معرض الصور والطلب المباشر</title>
+    
+    <!-- Google Fonts for Arabic Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        lrg: {
+                            black: '#080808',
+                            dark: '#121212',
+                            card: '#1a1a1a',
+                            gray: '#282828',
+                            gold: '#d4af37',
+                            goldLight: '#f3e5ab',
+                            goldDark: '#aa771c',
+                            whatsapp: '#25D366',
+                            whatsappDark: '#128C7E'
+                        }
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+                        'gold-glow-lg': '0 0 45px rgba(212, 175, 55, 0.45)',
+                        'wa-glow': '0 0 20px rgba(37, 211, 102, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #080808;
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glass-header {
+            background: rgba(12, 12, 12, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #282828;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-lrg-gold selection:text-black">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full border-2 border-lrg-gold flex items-center justify-center bg-lrg-black shadow-gold-glow group-hover:scale-105 transition-transform duration-300">
+                        <span class="font-bold text-lg text-gradient-gold">LRG</span>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-xl tracking-wide text-white leading-tight">LRG MATRAQUES</span>
+                        <span class="text-xs text-lrg-gold font-medium flex items-center gap-1">
+                            <i class="fas fa-truck text-[10px]"></i> التوصيل السريع لجميع مدن المغرب
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-semibold text-sm">
+                    <a href="#home" class="text-gray-300 hover:text-lrg-gold transition-colors py-2">الرئيسية</a>
+                    <a href="#features" class="text-gray-300 hover:text-lrg-gold transition-colors py-2">المميزات والقوة</a>
+                    <a href="#products" class="text-gray-300 hover:text-lrg-gold transition-colors py-2">معرض المنتجات والصور</a>
+                    <a href="#faq" class="text-gray-300 hover:text-lrg-gold transition-colors py-2">الأسئلة الشائعة</a>
+                </nav>
+
+                <!-- WhatsApp Call to Action -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/212709201650?text=السلام%20عليكم،%20بغيت%20نستفسر%20على%20سلعة%20LRG" target="_blank" rel="noopener noreferrer" 
+                       class="px-5 py-2.5 rounded-full bg-lrg-whatsapp hover:bg-lrg-whatsappDark text-white font-bold text-sm transition-all duration-300 flex items-center gap-2 shadow-wa-glow hover:scale-105">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>تواصل معنا (0709201650)</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" aria-label="فتح القائمة" class="p-2 text-gray-300 hover:text-lrg-gold focus:outline-none">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-lrg-dark border-b border-lrg-gold/20 px-4 pt-3 pb-6 transition-all duration-300">
+            <div class="flex flex-col space-y-4 font-semibold text-base">
+                <a href="#home" class="mobile-nav-link text-gray-300 hover:text-lrg-gold py-2 border-b border-lrg-gray">الرئيسية</a>
+                <a href="#features" class="mobile-nav-link text-gray-300 hover:text-lrg-gold py-2 border-b border-lrg-gray">المميزات</a>
+                <a href="#products" class="mobile-nav-link text-gray-300 hover:text-lrg-gold py-2 border-b border-lrg-gray">معرض المنتجات</a>
+                <a href="#faq" class="mobile-nav-link text-gray-300 hover:text-lrg-gold py-2 border-b border-lrg-gray">الأسئلة الشائعة</a>
+                <a href="https://wa.me/212709201650?text=السلام%20عليكم،%20بغيت%20نطلب" target="_blank" rel="noopener noreferrer" 
+                   class="w-full py-3 text-center bg-lrg-whatsapp text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-wa-glow">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>طلب مباشر عبر واتساب</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden flex items-center min-h-screen">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-lrg-gold/10 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-amber-600/5 rounded-full blur-[140px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 text-center lg:text-right fade-in-element">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lrg-gray/80 border border-lrg-gold/30 text-lrg-gold text-xs sm:text-sm font-bold mb-6">
+                        <span class="flex h-2 w-2 rounded-full bg-lrg-gold animate-ping"></span>
+                        <span>مرحباً بالجميع ⚡ متجر LRG الأصلي</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+                        تصفح أحدث السلع <br/>
+                        <span class="text-gradient-gold">واطلب أسلوبك المفضل</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-lg sm:text-xl font-normal leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        معرض صور متكامل مع إمكانية التكبير والتنقل بين الصور لكل أجهزة LRG الأصلي! قوة <strong class="text-lrg-gold">400kV</strong>، وبطارية تخدم <strong class="text-lrg-gold">أكثر من أسبوع (+1 week charge)</strong> مع التوصيل لكاع مدن المغرب.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                        <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-lrg-gold to-lrg-goldDark text-black font-extrabold text-lg shadow-gold-glow hover:shadow-gold-glow-lg hover:scale-105 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fas fa-images text-xl"></i>
+                            <span>تصفح المنتجات والصور</span>
+                        </a>
+                        <a href="https://wa.me/212709201650?text=السلام%20عليكم،%20بغيت%20معلومات%20أكثر" target="_blank" rel="noopener noreferrer"
+                           class="w-full sm:w-auto px-8 py-4 rounded-xl bg-lrg-dark border border-lrg-whatsapp text-lrg-whatsapp hover:bg-lrg-whatsapp hover:text-white font-bold text-lg transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>تواصل عبر الواتساب</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-lrg-gray grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-lrg-gold">400kV</span>
+                            <span class="text-xs sm:text-sm text-gray-400">طاقة وقوة عالية</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-lrg-gold">+1 أسبوع</span>
+                            <span class="text-xs sm:text-sm text-gray-400">شحن البطارية</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-lrg-gold">صور متعدّدة</span>
+                            <span class="text-xs sm:text-sm text-gray-400">لكل أجهزة المنتجات</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Image Card -->
+                <div class="lg:col-span-5 fade-in-element">
+                    <div class="relative max-w-md mx-auto">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-lrg-gold to-yellow-600 rounded-3xl blur opacity-30 animate-pulse"></div>
+                        
+                        <div class="relative rounded-3xl bg-lrg-card p-6 border border-lrg-gold/30 shadow-2xl animate-float">
+                            <div class="relative aspect-square rounded-2xl bg-lrg-black overflow-hidden flex items-center justify-center border border-white/10 group">
+                                <!-- 🖼️ [صورة الواجهة الرئيسية]: تقدر تبدّل الرابط للرابط ديالك -->
+                                <img id="hero-main-img" 
+                                     src="images/NEXA1.jpg"
+                                     alt="LRG Matraque Vape" 
+                                     class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-3 right-3 bg-lrg-gold text-black text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                    صورة حصرية ⭐
+                                </span>
+                            </div>
+
+                            <div class="mt-5 text-right">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h3 class="text-xl font-bold text-white">LRG Matraque Vape</h3>
+                                    <span class="text-lrg-gold font-extrabold text-xl">المغرب</span>
+                                </div>
+                                <p class="text-gray-400 text-xs mb-4">تصميم أنيق متين مع زري أمان وقدرة كهربائية عالية لضمان الأمان .</p>
+                                <a href="https://wa.me/212709201650?text=السلام%20عليكم،%20شفت%20منتج%20LRG%20وبغيت%20نطلب" target="_blank"
+                                   class="w-full py-3 bg-lrg-whatsapp hover:bg-lrg-whatsappDark text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all">
+                                    <i class="fab fa-whatsapp text-lg"></i>
+                                    <span>طلب مباشر عبر الواتساب</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 bg-lrg-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-element">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">مميزات أجهزة <span class="text-gradient-gold">LRG Matraques</span></h2>
+                <p class="text-gray-400 text-base sm:text-lg">معاينة كاملة للصور، جودة عالية ومضمونة، وطاقة فائقة كتوصلك حتى لدارك فـ كاع المغرب.</p>
+                <div class="w-20 h-1 bg-lrg-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="fade-in-element bg-lrg-card p-8 rounded-2xl border border-white/5 hover:border-lrg-gold/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-16 h-16 rounded-2xl bg-lrg-gray/80 border border-lrg-gold/20 flex items-center justify-center mb-6 group-hover:bg-lrg-gold group-hover:text-black text-lrg-gold transition-colors duration-300">
+                        <i class="fas fa-camera-retro text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">معرض صور شامل</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        تقدر تتفرج فـ صور واضحة وعالية الجودة من كاع الزوايا قبل ما تحسم الطلب ديالك.
+                    </p>
+                </div>
+
+                <div class="fade-in-element bg-lrg-card p-8 rounded-2xl border border-white/5 hover:border-lrg-gold/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-16 h-16 rounded-2xl bg-lrg-gray/80 border border-lrg-gold/20 flex items-center justify-center mb-6 group-hover:bg-lrg-gold group-hover:text-black text-lrg-gold transition-colors duration-300">
+                        <i class="fas fa-bolt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">قوة عالية 400KV</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        أجهزة مصممة بكفاءة عالية بجهد كهربائي ممتاز (400,000 ولت) لضمان الأداء الفعال.
+                    </p>
+                </div>
+
+                <div class="fade-in-element bg-lrg-card p-8 rounded-2xl border border-white/5 hover:border-lrg-gold/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-16 h-16 rounded-2xl bg-lrg-gray/80 border border-lrg-gold/20 flex items-center justify-center mb-6 group-hover:bg-lrg-gold group-hover:text-black text-lrg-gold transition-colors duration-300">
+                        <i class="fas fa-battery-full text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">بطارية +1 semain charge</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        بطارية قوية كتشد كثر من أسبوع كامل (+1 week) بالشحنة الواحدة بلا ما تحتاج تشحنها كل يوم.
+                    </p>
+                </div>
+
+                <div class="fade-in-element bg-lrg-card p-8 rounded-2xl border border-white/5 hover:border-lrg-gold/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-16 h-16 rounded-2xl bg-lrg-gray/80 border border-lrg-gold/20 flex items-center justify-center mb-6 group-hover:bg-lrg-gold group-hover:text-black text-lrg-gold transition-colors duration-300">
+                        <i class="fas fa-truck-fast text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">توصيل لكافة المدن</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        توصيل سريع وآمن لجميع المدن المغربية مع إمكانية المعاينة والدفع عند الاستلام.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-24 bg-lrg-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12 fade-in-element">
+                <div class="text-center md:text-right mb-6 md:mb-0">
+                    <span class="text-lrg-gold text-sm font-bold uppercase tracking-widest block mb-1">معرض الصور التفاعلي</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white">اختر وواحِظ <span class="text-gradient-gold">كافة الصور والأنواع</span></h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 justify-center bg-lrg-card p-1.5 rounded-xl border border-white/10">
+                    <button class="filter-btn active px-5 py-2 rounded-lg font-bold text-sm bg-lrg-gold text-black transition-all" data-category="all">الكل</button>
+                    <button class="filter-btn px-5 py-2 rounded-lg font-bold text-sm text-gray-300 hover:text-white transition-all" data-category="vape">Matraque Vape</button>
+                    <button class="filter-btn px-5 py-2 rounded-lg font-bold text-sm text-gray-300 hover:text-white transition-all" data-category="waka">Waka Series</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Products Grid Container -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="products-container">
+                <!-- Products dynamically rendered by JavaScript -->
+            </div>
+
+            <!-- Direct Contact Banner -->
+            <div class="mt-16 bg-gradient-to-r from-lrg-card via-lrg-dark to-lrg-card border border-lrg-gold/30 rounded-3xl p-8 sm:p-12 text-center fade-in-element shadow-2xl">
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">بغيتي تشوف فيديو أو عندك أي استفسار؟</h3>
+                <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-8">
+                    تواصل معنا مباشرة عبر الرقم الرسمي <strong class="text-lrg-gold">0709201650</strong> ونرسلو ليك كاع التفاصيل والصور المباشرة للسلعة!
+                </p>
+                <a href="https://wa.me/212709201650?text=السلام%20عليكم،%20بغيت%20نطلب%20أو%20نشوف%20صور%20إضافية" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-lrg-whatsapp text-white font-extrabold text-lg shadow-wa-glow hover:scale-105 transition-all">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>طلب صور إضافية عبر الواتساب</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-lrg-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-element">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">كيفاش كيدوز <span class="text-gradient-gold">الطلب والتوصيل</span>؟</h2>
+                <p class="text-gray-400">خطوات سهلة وسريعة باش توصلك سلعتك حتى لدارك</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div class="fade-in-element bg-lrg-card p-6 rounded-2xl border border-white/5 text-center relative">
+                    <div class="w-12 h-12 rounded-full bg-lrg-gold text-black font-black text-xl flex items-center justify-center mx-auto mb-4">1</div>
+                    <h3 class="text-lg font-bold text-white mb-2">تصفح الصور والمواصفات</h3>
+                    <p class="text-gray-400 text-sm">شاهد صور المنتج من كاع الجهات للتأكد من الموديل المطلوب.</p>
+                </div>
+                <div class="fade-in-element bg-lrg-card p-6 rounded-2xl border border-white/5 text-center relative">
+                    <div class="w-12 h-12 rounded-full bg-lrg-gold text-black font-black text-xl flex items-center justify-center mx-auto mb-4">2</div>
+                    <h3 class="text-lg font-bold text-white mb-2">طلب مباشر عبر واتساب</h3>
+                    <p class="text-gray-400 text-sm">اضغط زر الواتساب وغادي يديك ديريكت للرقم 0709201650 مع اسم المنتج ومواصفاته.</p>
+                </div>
+                <div class="fade-in-element bg-lrg-card p-6 rounded-2xl border border-white/5 text-center relative">
+                    <div class="w-12 h-12 rounded-full bg-lrg-gold text-black font-black text-xl flex items-center justify-center mx-auto mb-4">3</div>
+                    <h3 class="text-lg font-bold text-white mb-2">استلم وسلّك فـ مدينتك</h3>
+                    <p class="text-gray-400 text-sm">التوصيل كيكون سريع لكاع المدن المغربية والدفع عند الاستلام .</p>
+                </div>
+            </div>
+
+            <!-- FAQ Accordion List -->
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="fade-in-element border border-white/10 rounded-2xl bg-lrg-card overflow-hidden">
+                    <button class="faq-accordion w-full p-5 text-right font-bold text-white flex justify-between items-center hover:text-lrg-gold transition-colors">
+                        <span>واش الصور المعروضة صور حقيقية للسلعة؟</span>
+                        <i class="fas fa-chevron-down text-lrg-gold transition-transform"></i>
+                    </button>
+                    <div class="faq-panel hidden p-5 pt-0 text-gray-300 text-sm border-t border-white/5 leading-relaxed">
+                        نعم! جميع الصور المعروضة هي صور حقيقية للمنتجات المتوفرة  LRG.
+                    </div>
+                </div>
+
+                <div class="fade-in-element border border-white/10 rounded-2xl bg-lrg-card overflow-hidden">
+                    <button class="faq-accordion w-full p-5 text-right font-bold text-white flex justify-between items-center hover:text-lrg-gold transition-colors">
+                        <span>شحال كيشد الشارج فالبطارية؟</span>
+                        <i class="fas fa-chevron-down text-lrg-gold transition-transform"></i>
+                    </button>
+                    <div class="faq-panel hidden p-5 pt-0 text-gray-300 text-sm border-t border-white/5 leading-relaxed">
+                        جميع أجهزة LRG مزودة ببطارية عالية الجودة كتشد كثر من أسبوع كامل (+1 week charge) مع الاستعمال العادي.
+                    </div>
+                </div>
+
+                <div class="fade-in-element border border-white/10 rounded-2xl bg-lrg-card overflow-hidden">
+                    <button class="faq-accordion w-full p-5 text-right font-bold text-white flex justify-between items-center hover:text-lrg-gold transition-colors">
+                        <span>شحال كياخد الوقت فـ التوصيل؟</span>
+                        <i class="fas fa-chevron-down text-lrg-gold transition-transform"></i>
+                    </button>
+                    <div class="faq-panel hidden p-5 pt-0 text-gray-300 text-sm border-t border-white/5 leading-relaxed">
+                        التوصيل كيكون سريع جداً لجميع المدن المغربية فـ ظرف 24 إلى 48 ساعة فقط والدفع عند استلام السلعة.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-lrg-black border-t border-white/10 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full border-2 border-lrg-gold flex items-center justify-center bg-lrg-black">
+                            <span class="font-bold text-lrg-gold text-sm">LRG</span>
+                        </div>
+                        <span class="font-extrabold text-xl text-white">LRG MATRAQUES - المتجر الرسمي</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 max-w-md">
+                        الصفحة الرسمية والموثوقة لأجود المنتجات المضمونة بقدرة 400kV وبطارية +1 أسبوع شحن مع صور حقيقية عالية الجودة لكل منتج.
+                    </p>
+                    <div class="flex items-center gap-3 text-lrg-gold font-bold text-lg">
+                        <i class="fab fa-whatsapp text-2xl text-lrg-whatsapp"></i>
+                        <span>0709201650</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-base border-b border-lrg-gold/30 pb-2 inline-block">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-lrg-gold transition-colors">الرئيسية</a></li>
+                        <li><a href="#features" class="hover:text-lrg-gold transition-colors">المميزات والقوة</a></li>
+                        <li><a href="#products" class="hover:text-lrg-gold transition-colors">معرض الصور</a></li>
+                        <li><a href="#faq" class="hover:text-lrg-gold transition-colors">طريقة الطلب والتوصيل</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-base border-b border-lrg-gold/30 pb-2 inline-block">الموقع والتواصل</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-truck text-lrg-gold"></i>
+                            <span>التوصيل لكافة مدن المغرب</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fab fa-instagram text-lrg-gold"></i>
+                            <span>@lrg_matraques</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone text-lrg-gold"></i>
+                            <span>0709201650</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 LRG Matraques. جميع الحقوق محفوظة.</p>
+                <p class="flex items-center gap-1">
+                    صنع بـ <i class="fas fa-heart text-red-500"></i> لخدمة زبنائنا فالمغرب
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/212709201650?text=السلام%20عليكم،%20بغيت%20نستفسر%20على%20المنتجات" 
+       target="_blank" rel="noopener noreferrer" 
+       aria-label="تواصل معنا عبر الواتساب"
+       class="fixed bottom-6 left-6 z-40 w-14 h-14 bg-lrg-whatsapp hover:bg-lrg-whatsappDark text-white rounded-full flex items-center justify-center text-3xl shadow-wa-glow hover:scale-110 transition-all duration-300">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="product-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-lrg-card border border-lrg-gold/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-gold-glow my-8">
+            <button id="close-modal-btn" class="absolute top-4 left-4 text-gray-400 hover:text-white text-3xl font-bold focus:outline-none z-10 w-10 h-10 rounded-full bg-lrg-black flex items-center justify-center border border-white/10">
+                &times;
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                
+                <!-- Modal Photo Lightbox Container -->
+                <div class="space-y-3">
+                    <div id="modal-media-container" class="relative aspect-square rounded-2xl bg-lrg-black overflow-hidden border border-white/10 flex items-center justify-center group">
+                        <!-- Main image dynamically rendered -->
+                    </div>
+
+                    <!-- Modal Thumbnails Strip -->
+                    <div id="modal-thumbs-strip" class="flex gap-2 overflow-x-auto pb-1 max-w-full justify-start">
+                        <!-- Thumbnails dynamically rendered -->
+                    </div>
+                </div>
+
+                <!-- Modal Product Specifications -->
+                <div class="text-right flex flex-col justify-between h-full">
+                    <div>
+                        <span id="modal-badge" class="bg-lrg-gold text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">
+                            400kV Power
+                        </span>
+                        <h3 id="modal-title" class="text-2xl font-extrabold text-white mb-2">اسم المنتج</h3>
+                        <div id="modal-price" class="text-3xl font-black text-lrg-gold mb-4">00 درهم</div>
+
+                        <p id="modal-desc" class="text-gray-300 text-sm leading-relaxed mb-6">
+                            وصف المنتج يظهر هنا...
+                        </p>
+
+                        <div class="bg-lrg-dark p-4 rounded-xl space-y-2 text-xs sm:text-sm text-gray-300 mb-6 border border-white/5">
+                            <p class="flex items-center gap-2">
+                                <i class="fas fa-bolt text-lrg-gold w-4 text-center"></i>
+                                <span>الجهد الكهربائي: <strong id="modal-power" class="text-white">400kV</strong></span>
+                            </p>
+                            <p class="flex items-center gap-2">
+                                <i class="fas fa-battery-full text-lrg-gold w-4 text-center"></i>
+                                <span>مدة البطارية: <strong id="modal-battery" class="text-white">+1 semain charge</strong></span>
+                            </p>
+                            <p class="flex items-center gap-2">
+                                <i class="fas fa-images text-lrg-gold w-4 text-center"></i>
+                                <span>المعاينة: <strong class="text-white">معرض صور عالي الجودة</strong></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <a id="modal-wa-link" href="#" target="_blank" rel="noopener noreferrer"
+                       class="w-full py-4 bg-lrg-whatsapp hover:bg-lrg-whatsappDark text-white font-extrabold text-base rounded-xl flex items-center justify-center gap-2 transition-all shadow-wa-glow">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>تأكيد الطلب عبر الواتساب</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* 
+         ===================================================================
+         🖼️ [كيفاش تحط وتزيد الصور لكل منتج فـ الكود]:
+         فـ قائمة images تقدر تحط شحال ما بغيتي ديال روابط الصور:
+         
+         images: [
+             'https://رابط_الصورة_الأولى.jpg',
+             'https://رابط_الصورة_الثانية.jpg',
+             'https://رابط_الصورة_الثالثة.jpg'
+         ]
+         ===================================================================
+        */
+
+        const PRODUCTS = [
+            {
+                id: 1,
+                category: 'vape',
+                title: 'LRG Blue',
+                price: '299 درهم',
+                power: '400kV',
+                battery: '+1 semain charge',
+                badge: 'الأكثر طلباً 🔥',
+                description: 'هيكل متين مقاوم للصدمات مع زر أمان مزدوج وشحن يدوم لأكثر من أسبوع كامل (+1 semain charge) وقوة 400kV عالية الاستجابة.',
+                images: [
+                    // 🖼️ [صور المنتج 1]: بدّل هاد الروابط بروابط الصور ديالك
+                    "images/NEXA1.jpg",
+                    'images/NEXA2.jpg',
+                    'images/NEXA3.jpg'
+                ]
+            },
+            {
+                id: 2,
+                category: 'vape',
+                title: 'LRG Blue (النسخة الزرقاء)',
+                price: '349 درهم',
+                power: '400kV',
+                battery: '+1 semain charge',
+                badge: 'جديد ⚡',
+                description: 'تصميم عصري باللون الأزرق الملكي، حجم مريح لليد وقوة سريعة الاستجابة مع زر أمان يمنع التشغيل العشوائي.',
+                images: [
+                   'images/NEXA1.jpg',
+                    'images/NEXA2.jpg',
+                    'images/NEXA3.jpg'
+                ]
+            },
+            {
+                id: 3,
+                category: 'vape',
+                title: 'LRG Blue',
+                price: '320 درهم',
+                power: '400kV',
+                battery: '+1 semain charge',
+                badge: 'VIP Luxury ✨',
+                description: 'أفخم نسخة متوفرة بطلاء Rose Gold مميز وأداء قوي جِداً مع زر أحمر سريع الاستجابة وبطارية تدوم +1 أسبوع.',
+                images: [
+                  'images/NEXA1.jpg',
+                    'images/NEXA2.jpg',
+                    'images/NEXA3.jpg'
+                ]
+            },
+            {
+                id: 4,
+                category: 'vape',
+                title: 'LRG Blue ',
+                price: '320 درهم',
+                power: '400kV',
+                battery: '+1 semain charge',
+                badge: 'الأكثر متانة 🛡️',
+                description: 'نسخة Matraque المتينة المصنوعة بمواصفات عالية الجودة مع مفاتيح مزدوجة وعمر بطارية طويل جداً مناسب للجميع.',
+                images: [
+                    'images/NEXA1.jpg',
+                    'images/NEXA2.jpg',
+                    'images/NEXA3.jpg'
+                ]
+            }
+        ];
+
+        let currentModalProduct = null;
+        let currentModalImageIndex = 0;
+
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+
+            PRODUCTS.forEach((product) => {
+                const card = document.createElement('div');
+                card.className = `product-item fade-in-element bg-lrg-card rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between hover:border-lrg-gold/60 transition-all duration-300 hover:-translate-y-2 group shadow-lg`;
+                card.setAttribute('data-category', product.category);
+
+                let thumbsHTML = '';
+                product.images.forEach((imgUrl, idx) => {
+                    thumbsHTML += `
+                        <button onclick="changeCardImage(${product.id}, ${idx}, event)" 
+                                class="thumb-btn-${product.id} relative w-9 h-9 rounded-md border ${idx === 0 ? 'border-lrg-gold scale-105' : 'border-white/20 opacity-60'} overflow-hidden bg-black flex items-center justify-center transition-all">
+                            <img src="${imgUrl}" class="w-full h-full object-cover" alt="Product Thumbnail">
+                        </button>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="relative aspect-[4/5] bg-lrg-dark p-4 flex flex-col justify-between overflow-hidden">
+                        <div class="flex justify-between items-center z-10">
+                            <span class="bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">${product.power}</span>
+                            <span class="bg-lrg-gold text-black text-xs font-bold px-2.5 py-1 rounded-md">${product.badge}</span>
+                        </div>
+                        
+                        <!-- Main Card Image View -->
+                        <div id="card-media-box-${product.id}" class="relative w-full h-48 sm:h-56 my-2 flex items-center justify-center rounded-xl overflow-hidden">
+                            <img id="card-item-img-${product.id}" 
+                                 src="${product.images[0]}" 
+                                 alt="${product.title}" 
+                                 class="w-full h-full object-contain transition-transform duration-500 hover:scale-105">
+                        </div>
+
+                        <!-- Card Thumbnails Row -->
+                        <div class="z-10 flex gap-1.5 justify-center overflow-x-auto py-1">
+                            ${thumbsHTML}
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">${product.title}</h3>
+                            
+                            <div class="space-y-1.5 my-3 text-xs sm:text-sm text-gray-300">
+                                <p class="flex items-center gap-2">
+                                    <i class="fas fa-bolt text-lrg-gold w-4 text-center"></i>
+                                    <span>الجهد: <strong class="text-white">${product.power}</strong></span>
+                                </p>
+                                <p class="flex items-center gap-2">
+                                    <i class="fas fa-battery-full text-lrg-gold w-4 text-center"></i>
+                                    <span>البطارية: <strong class="text-white">${product.battery}</strong></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 mt-2">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-gray-400 text-xs">الثمن المناسب:</span>
+                                <span class="text-2xl font-extrabold text-lrg-gold">${product.price}</span>
+                            </div>
+
+                            <div class="grid grid-cols-5 gap-2">
+                                <button onclick="openProductModal(${product.id})" 
+                                        title="تكبير الصور ومعاينة التفاصيل"
+                                        class="col-span-1 bg-lrg-gray hover:bg-lrg-gold hover:text-black text-white rounded-xl flex items-center justify-center transition-colors">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <a href="https://wa.me/212709201650?text=${encodeURIComponent('السلام عليكم، بغيت نطلب منتج: ' + product.title + ' بسعر ' + product.price)}" 
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="col-span-4 py-3 bg-lrg-whatsapp hover:bg-lrg-whatsappDark text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition-all">
+                                    <i class="fab fa-whatsapp text-lg"></i>
+                                    <span>طلب مباشر</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function changeCardImage(productId, imgIndex, event) {
+            if (event) event.stopPropagation();
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const imgElement = document.getElementById(`card-item-img-${productId}`);
+            if (imgElement) {
+                imgElement.src = product.images[imgIndex];
+            }
+
+            const thumbBtns = document.querySelectorAll(`.thumb-btn-${productId}`);
+            thumbBtns.forEach((btn, idx) => {
+                if (idx === imgIndex) {
+                    btn.classList.add('border-lrg-gold', 'scale-105');
+                    btn.classList.remove('border-white/20', 'opacity-60');
+                } else {
+                    btn.classList.remove('border-lrg-gold', 'scale-105');
+                    btn.classList.add('border-white/20', 'opacity-60');
+                }
+            });
+        }
+
+        function openProductModal(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            currentModalProduct = product;
+            currentModalImageIndex = 0;
+
+            document.getElementById('modal-title').textContent = product.title;
+            document.getElementById('modal-price').textContent = product.price;
+            document.getElementById('modal-badge').textContent = product.badge || product.power;
+            document.getElementById('modal-power').textContent = product.power;
+            document.getElementById('modal-battery').textContent = product.battery;
+            document.getElementById('modal-desc').textContent = product.description;
+
+            updateModalGallery();
+
+            const waMsg = encodeURIComponent(`السلام عليكم، بغيت نطلب منتج: ${product.title} بسعر ${product.price}`);
+            document.getElementById('modal-wa-link').href = `https://wa.me/212709201650?text=${waMsg}`;
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function updateModalGallery() {
+            if (!currentModalProduct) return;
+            const container = document.getElementById('modal-media-container');
+            const imagesList = currentModalProduct.images;
+
+            container.innerHTML = `
+                <img id="modal-active-img" 
+                     src="${imagesList[currentModalImageIndex]}" 
+                     alt="Modal Product View" 
+                     class="w-full h-full object-contain p-2">
+            `;
+
+            const strip = document.getElementById('modal-thumbs-strip');
+            strip.innerHTML = '';
+
+            imagesList.forEach((imgUrl, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `relative w-12 h-12 rounded-lg border-2 overflow-hidden flex-shrink-0 bg-black transition-all ${idx === currentModalImageIndex ? 'border-lrg-gold scale-105' : 'border-white/20 opacity-60'}`;
+                btn.onclick = () => {
+                    currentModalImageIndex = idx;
+                    updateModalGallery();
+                };
+                btn.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover" alt="Thumbnail">`;
+                strip.appendChild(btn);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-lrg-gold', 'text-black');
+                        b.classList.add('text-gray-300');
+                    });
+                    btn.classList.add('active', 'bg-lrg-gold', 'text-black');
+                    btn.classList.remove('text-gray-300');
+
+                    const category = btn.getAttribute('data-category');
+                    document.querySelectorAll('.product-item').forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            document.querySelectorAll('.faq-accordion').forEach(acc => {
+                acc.addEventListener('click', function() {
+                    const panel = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    panel.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            const modal = document.getElementById('product-modal');
+            document.getElementById('close-modal-btn').addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
